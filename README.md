@@ -22,14 +22,14 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Learning Laravel
-
-Install :
-1 composer update
-2 php artisan migrate
-3 php artisan db:seed --class=DummyUsersSeeder
-4 npm run dev
-5 New terminal
-6 php artisan serve
+<br>
+Install :<br>
+1 composer update<br>
+2 php artisan migrate<br>
+3 php artisan db:seed --class=DummyUsersSeeder<br>
+4 npm run dev<br>
+5 New terminal<br>
+6 php artisan serve<br>
 
 
 ## Laravel Sponsors
