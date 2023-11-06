@@ -26,10 +26,11 @@ Route::middleware(['guest'])->group(function()
     Route::post('/login',[SesiController::class,'login']);
 });
 Route::get('/home', function () {
-  return redirect('/dashboard/user');
+  return redirect('/dashboard');
 });
 
 Route::middleware(['auth'])->group(function(){
+    Route::get('/dashboard',[AdminController::class,'index']);
     Route::get('/dashboard/superadmin',[AdminController::class,'superadmin'])->middleware('userAkses:superadmin');
     Route::get('/dashboard/admin',[AdminController::class,'admin'])->middleware('userAkses:admin');
     Route::get('/dashboard/user',[AdminController::class,'user'])->middleware('userAkses:user');

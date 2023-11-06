@@ -30,11 +30,11 @@ class SesiController extends Controller
         if(Auth::attempt($infologin)){
             //echo "sukses"; exit();
          if(Auth::user()->role == 'superadmin'){
-            return redirect('dashboard');
+            return redirect('dashboard/superadmin');
          }elseif(Auth::user()->role == 'admin'){
-            return redirect('dashboard');
+            return redirect('dashboard/admin');
          }elseif(Auth::user()->role == 'user'){
-            return redirect('dashboard');
+            return redirect('dashboard/user');
          }
         }else{
             return redirect('login')->withErrors('EMAIL PASSWORD TIDAK SESUAI')->withInput();
@@ -55,9 +55,9 @@ class SesiController extends Controller
         'email' => 'required|email:dns|max:255|unique:users,email',
         'password' => 'required|min:6|',
         ],[
-            'name.required' =>'nama wajib idisi',
-            'email.required'=>'email wajib di isi',
-            'password.required'=>'pass wajib di isi min6'
+ //           'name.required' =>'nama wajib idisi',
+ //           'email.required'=>'email wajib di isi',
+ //           'password.required'=>'pass wajib di isi min6'
  //       ]);
        ]);
        $data['name']        = $request->name;
@@ -71,15 +71,15 @@ class SesiController extends Controller
         ];
         if(Auth::attempt($login)){
             //echo "sukses"; exit();
-         if(Auth::user()->role == 'superadmin'){
-            return redirect('dashboard');
-         }elseif(Auth::user()->role == 'admin'){
-            return redirect('dashboard');
-         }elseif(Auth::user()->role == 'user'){
-            return redirect('dashboard');
-         }
+            if(Auth::user()->role == 'superadmin'){
+                return redirect('dashboard/superadmin');
+             }elseif(Auth::user()->role == 'admin'){
+                return redirect('dashboard/admin');
+             }elseif(Auth::user()->role == 'user'){
+                return redirect('dashboard/user');
+             }
         }else{
-            return redirect('login')->withErrors('EMAIL PASSWORD TIDAK SESUAI')->withInput();
+            return redirect('register')->withErrors('EMAIL PASSWORD TIDAK SESUAI')->withInput();
         }
     }
 }
